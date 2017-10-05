@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   # RewriteCond %{REQUEST_FILENAME} !-f
+   # RewriteCond %{REQUEST_FILENAME} !-d
+   # RewriteRule ^(.*)$ gateway/api_V1.0/index.php?$1 [L]
+   RewriteRule ^reminders$ gateway/api_V1.0/index.php?command=reminders,list
+   RewriteRule ^reminders/([0-9]{1,})$ gateway/api_V1.0/index.php?command=reminders,single&id=$1
+   RewriteRule ^reminders/([0-9]{1,})/tags$ gateway/api_V1.0/index.php?command=reminders,tag&id=$1
+   RewriteRule ^reminders/([0-9]{1,})/category gateway/api_V1.0/index.php?command=reminders,category&id=$1
+   RewriteRule ^tags$ gateway/api_V1.0/index.php?command=tags,list
+   RewriteRule ^categorys$ gateway/api_V1.0/index.php?command=categorys,list
+   RewriteRule ^categorys/([0-9]{1,})$ gateway/api_V1.0/index.php?command=categorys,single&id=$1
+</IfModule>
