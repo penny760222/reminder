@@ -27,7 +27,6 @@ class class_dal_reminders extends class_csql{
     public function sql_getReminderCount(){
         $sql = " select count(id) as count";        
         $sql.= " from reminders ";
-        // echo $sql."<br>\n";
         $data = $this->Qexecute($sql,$params,'afth');
         return $data["count"];
     } 
@@ -44,7 +43,6 @@ class class_dal_reminders extends class_csql{
         if($_id>0){ 
             $sql.= " where id = '".$_id."'";
         }     
-        // echo $sql."<br>\n";
         $row = $this->Qexecute($sql,$params);
         $sizeof = sizeof($row);
         $data = array();
@@ -64,7 +62,6 @@ class class_dal_reminders extends class_csql{
         if($_reminderId!="0"){ 
             $sql.= " where reminderId = '".$_reminderId."'";
         }              
-        // echo $sql."<br>\n";
         $row = $this->Qexecute($sql,$params);
         $sizeof = sizeof($row);
         $data = array();
@@ -86,7 +83,6 @@ class class_dal_reminders extends class_csql{
         $sql.= " ,isCompleted = 'N'";// 是否完成
         $sql.= " ,CategoryId = '".$_CategoryId."'";// 類別編號
         $sql.= " ,build_time = '".time()."'";// 更新時間
-        // echo $sql."<br>\n";
         $this->Wmysql($sql);
         return $this->getInserId();
     }
@@ -102,7 +98,6 @@ class class_dal_reminders extends class_csql{
         $sql = " insert into reminders_tag ";
         $sql.= " (reminderId, tagId) " ;
         $sql.= " VALUES ".join(",",$sqlVal);
-        // echo $sql."<br>\n";
         $this->Wmysql($sql);
         return $this->getInserId();
     }
@@ -120,7 +115,6 @@ class class_dal_reminders extends class_csql{
         $sql.= " ,CategoryId = '".$_CategoryId."'";// 類別編號
         $sql.= " ,op_time = '".time()."'";// 更新時間
         $sql.= " where id = '".$_reminderId."'";
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
 
@@ -132,7 +126,6 @@ class class_dal_reminders extends class_csql{
     public function sql_delReminder($_reminderId){
         $sql = " delete from reminders ";
         $sql.= " where id = '".$_reminderId."'"; 
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
     /**
@@ -141,7 +134,6 @@ class class_dal_reminders extends class_csql{
     public function sql_delReminderTag($_reminderId){
         $sql = " delete from reminders_tag ";
         $sql.= " where reminderId = '".$_reminderId."'"; 
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
 
@@ -155,7 +147,6 @@ class class_dal_reminders extends class_csql{
         $sql.= " CategoryId = '".$_categoryId."'";// 類別編號
         $sql.= " ,op_time = '".time()."'";// 更新時間
         $sql.= " where id = '".$_reminderId."'";
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
     /**
@@ -166,7 +157,6 @@ class class_dal_reminders extends class_csql{
         $sql.= " CategoryId = '0'";// 類別編號
         $sql.= " ,op_time = '".time()."'";// 更新時間
         $sql.= " where CategoryId = '".$_categoryId."'";
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
 }

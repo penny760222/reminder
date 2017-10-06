@@ -47,7 +47,6 @@ class class_dal_categorys extends class_csql{
         $sql = " insert into categorys set ";
         $sql.= "  name = '".$_name."'";// 名稱
         $sql.= " ,build_time = '".time()."'";// 更新時間
-        // echo $sql."<br>\n";
         $this->Wmysql($sql);
         return $this->getInserId();
     }
@@ -59,7 +58,6 @@ class class_dal_categorys extends class_csql{
         $sql.= "  name = '".$_name."'";// 名稱   
         $sql.= " ,op_time = '".time()."'";// 更新時間
         $sql.= " where id = '".$_id."'";
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
     /**
@@ -68,7 +66,6 @@ class class_dal_categorys extends class_csql{
     public function sql_delCategory($_id){
         $sql = " delete from categorys ";
         $sql.= " where id = '".$_id."'"; 
-        // echo $sql."<br>\n";
         return $this->Wmysql($sql);
     }
 }

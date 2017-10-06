@@ -32,7 +32,6 @@ class class_dal_tags extends class_csql{
         if($_id!="0"){ 
             $sql.= " where id = '".$_id."'";
         }             
-        // echo $sql."<br>\n";
         $row = $this->Qexecute($sql,$params);
         $sizeof = sizeof($row);
         $data = array();
@@ -48,7 +47,6 @@ class class_dal_tags extends class_csql{
         $sql = " insert into tags set ";
         $sql.= "  name = '".$_name."'";// 名稱
         $sql.= " ,build_time = '".time()."'";// 更新時間
-        // echo $sql."<br>\n";
         $this->Wmysql($sql);
         return $this->getInserId();
     }

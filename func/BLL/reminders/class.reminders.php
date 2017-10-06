@@ -3,9 +3,6 @@
  *  商業邏輯層
  */
 class class_reminders {
-
-    /** 設定基本函數
-    */
 	/**
 	 * [ 建構子 ]
 	 */
@@ -212,7 +209,6 @@ class class_reminders {
         if( $_categoryId === false ) return ; // 請檢查參數
 
         ## 修改提醒事項
-        // $eff = Instance::get("dai_reminders")->doUpdReminder($_reminderId,$_title,$_remindTime,$_isCompleted,$_categoryId,$_tagIds);
         $eff = Instance::get("dai_reminders")->updReminder($_reminderId,$_title,$_remindTime,$_isCompleted,$_CategoryId); // 修改主提醒事項
         if( $eff==false ) return Instance::get("response")->set_Fail("E30005"); // 修改失敗
         Instance::get("dai_reminders")->updReminderTag($_reminderId,$_tagIds); // 修改主提醒事項標籤
@@ -277,10 +273,6 @@ class class_reminders {
                 } 
                 break;
             case 'category':
-                // if( $_val!="" ){
-                //     Instance::get("response")->set_Fail("E30011"); // 請檢查參數
-                //     return false;
-                // } 
                 break;
             case 'isCompleted':
                 if( $_val!=0 &&  $_val!=1){
