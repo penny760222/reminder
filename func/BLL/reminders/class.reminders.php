@@ -6,7 +6,6 @@ class class_reminders {
 
     /** 設定基本函數
     */
-    // var $DAI;
 	/**
 	 * [ 建構子 ]
 	 */
