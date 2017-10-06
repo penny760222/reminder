@@ -1,5 +1,4 @@
 <?
-// $csql = new class_csql();
 abstract class class_csql {
 
 
@@ -74,14 +73,6 @@ abstract class class_csql {
 		}
 		return $result;
 	}
-
-	
-	/**
-	 * [ 取得查詢結果 ]
-	public function get_result($_method=''){
-		return $this->_get_query_result($_method);
-	}
-	 */
 
 
 	/**
